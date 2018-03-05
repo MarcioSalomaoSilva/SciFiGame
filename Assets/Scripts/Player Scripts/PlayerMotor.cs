@@ -25,7 +25,7 @@ public class PlayerMotor : MonoBehaviour // does what the player manager tells i
     Transform currentTransformDirection;
     Transform newTransformDirection;
     //
-    Quaternion direction;
+    Quaternion direction = new Quaternion(0,0,0,1);
     // Use this for initialization
     void Awake()
     {

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciFiGame", "SciFiGame.csproj", "{81CD92BF-BDEA-8548-FAE7-ED327FD2D7A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciFiGame.Editor", "SciFiGame.Editor.csproj", "{A79CD705-9E10-A1E1-2E18-CEF79789EE7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81CD92BF-BDEA-8548-FAE7-ED327FD2D7A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CD92BF-BDEA-8548-FAE7-ED327FD2D7A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CD92BF-BDEA-8548-FAE7-ED327FD2D7A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CD92BF-BDEA-8548-FAE7-ED327FD2D7A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A79CD705-9E10-A1E1-2E18-CEF79789EE7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A79CD705-9E10-A1E1-2E18-CEF79789EE7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A79CD705-9E10-A1E1-2E18-CEF79789EE7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A79CD705-9E10-A1E1-2E18-CEF79789EE7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
