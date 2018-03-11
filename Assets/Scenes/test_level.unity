@@ -427,9 +427,86 @@ Prefab:
       propertyPath: applyOn
       value: 
       objectReference: {fileID: 1296954386}
+    - target: {fileID: 114368030626485254, guid: 41fa96803bf039a45b0ae958167fff1f,
+        type: 2}
+      propertyPath: triggerText.title
+      value: title
+      objectReference: {fileID: 0}
+    - target: {fileID: 114368030626485254, guid: 41fa96803bf039a45b0ae958167fff1f,
+        type: 2}
+      propertyPath: triggerState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114368030626485254, guid: 41fa96803bf039a45b0ae958167fff1f,
+        type: 2}
+      propertyPath: toggleGizmos
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41fa96803bf039a45b0ae958167fff1f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &886444851 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1109000883057778, guid: 41fa96803bf039a45b0ae958167fff1f,
+    type: 2}
+  m_PrefabInternal: {fileID: 886444850}
+--- !u!114 &886444852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 886444851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fe171eee44e2143a64f661b51b4bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - 
+    - 
+    - 
+--- !u!1 &949094262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 949094264}
+  - component: {fileID: 949094263}
+  m_Layer: 0
+  m_Name: Dialogue Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &949094263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 949094262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf4bf5e7f3476a4db945543e161d0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &949094264
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 949094262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &966928966
 GameObject:
   m_ObjectHideFlags: 0
