@@ -10,12 +10,13 @@ public class CameraTrigger : MonoBehaviour
     public static event CameraTriggerDelegate OnExit;
     //
     public GameObject cameraLocation;
+    [HideInInspector]
     public GameObject mainCamera;
-    public BoxCollider thisCollider;
     //
-    public bool toggleGizmos;
     public bool lookAtPlayer;
     public float cameraChangeSpeed = .5f;
+    [HideInInspector]
+    public bool trigger = true;
     // Use this for initialization
     private void Awake()
     {
@@ -39,18 +40,29 @@ public class CameraTrigger : MonoBehaviour
             OnExit(cameraLocation.transform.parent, lookAtPlayer, cameraChangeSpeed);
         }
     }
+    private void OnValidate()
+    {
+        if (cameraLocation == null)
+        {
+            CameraVariables();
+        }
+    }
     //
+    private void OnDestroy()
+    {
+        Destroy(cameraLocation);
+    }
     private void OnDrawGizmos()
     {
-        if (toggleGizmos)
+        if (DebugManager.instance.gizmos)
         {
             //draws camera location
             
             //
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(this.transform.position, thisCollider.size);
+            Gizmos.DrawWireCube(this.transform.position, this.GetComponent<BoxCollider>().size);
             Gizmos.color = new Color(1, .92f, 0.016f, 0.1f);
-            Gizmos.DrawCube(this.transform.position, thisCollider.size);
+            Gizmos.DrawCube(this.transform.position, this.GetComponent<BoxCollider>().size);
             //connects the object to camera
             Gizmos.color = Color.black;
             //camera gizmos
@@ -87,5 +99,12 @@ public class CameraTrigger : MonoBehaviour
         {
             Debug.LogAssertion("The Camera Location isn't set up for this trigger box");
         }
+    }
+    public void CameraVariables()
+    {
+        cameraLocation = new GameObject("Camera Location");
+        cameraLocation.transform.parent = this.gameObject.transform;
+        cameraLocation.transform.position = Vector3.zero;
+        //
     }
 }

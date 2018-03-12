@@ -4,25 +4,17 @@ using UnityEngine;
 //
 public class DebugManager : MonoBehaviour
 {
+    public static DebugManager instance;
+    //
     [Header("Player Stuff")]
     public bool playerDebug;
     public bool playerDirection;
     public bool playerRays;
-    //[Header("Camera Stuff")]
-    //public bool cameraTriggerGizmos;
-    [HideInInspector]
-    public List<CameraTrigger> cameraTriggerScripts;
+    public bool gizmos;
     //
     private void OnValidate()
     {
-        //if (cameraTriggerScripts.Count < GameObject.FindObjectsOfType<CameraTrigger>().Length)
-        //{
-        //    cameraTriggerScripts.AddRange(GameObject.FindObjectsOfType<CameraTrigger>());
-        //}
-        //else if (cameraTriggerScripts.Count >= GameObject.FindObjectsOfType<CameraTrigger>().Length)
-        //{
-        //    cameraTriggerScripts.RemoveRange(2, cameraTriggerScripts.Count);
-        //}
+        instance = this;
     }
     void OnDrawGizmos()
     {

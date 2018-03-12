@@ -295,6 +295,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\BasicTriggerEditor.cs" />
+    <Compile Include="Assets\Editor\DoorTriggerEditor.cs" />
     <Compile Include="Assets\Editor\Menu\SceneItemEditor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

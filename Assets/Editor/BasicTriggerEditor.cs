@@ -13,58 +13,72 @@ public class BasicTriggerEditor : Editor
         thisTarget.triggerState = (TriggerTypeState)EditorGUILayout.EnumPopup("Trigger Type", thisTarget.triggerState);
         switch (thisTarget.triggerState)
         {
-            case TriggerTypeState.Basic:
-                DrawBasicTrigger();
-                break;
             case TriggerTypeState.Dialogue:
-                DrawDialogueTrigger();
+                thisTarget.AddRemoveComponent("DialogueTrigger");
+                thisTarget.RemoveRest("DoubleDoorTrigger");
+                thisTarget.RemoveRest("DoorTrigger");
+                thisTarget.RemoveRest("SlidingDoorTrigger");
+                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
+                thisTarget.RemoveRest("CameraTrigger");
+                thisTarget.RemoveRest("ItemTrigger");
                 break;
             case TriggerTypeState.Door:
-                DrawDoorTrigger();
+                thisTarget.AddRemoveComponent("DoorTrigger");
+                thisTarget.RemoveRest("DialogueTrigger");
+                thisTarget.RemoveRest("DoubleDoorTrigger");
+                thisTarget.RemoveRest("SlidingDoorTrigger");
+                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
+                thisTarget.RemoveRest("CameraTrigger");
+                thisTarget.RemoveRest("ItemTrigger");
                 break;
             case TriggerTypeState.DoubleDoor:
-                DrawDoubleDoorTrigger();
+                thisTarget.AddRemoveComponent("DoubleDoorTrigger");
+                thisTarget.RemoveRest("DialogueTrigger");
+                thisTarget.RemoveRest("DoorTrigger");
+                thisTarget.RemoveRest("SlidingDoorTrigger");
+                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
+                thisTarget.RemoveRest("CameraTrigger");
+                thisTarget.RemoveRest("ItemTrigger");
                 break;
             case TriggerTypeState.SlidingDoor:
-                DrawSlidingDoorTrigger();
+                thisTarget.AddRemoveComponent("SlidingDoorTrigger");
+                thisTarget.RemoveRest("DialogueTrigger");
+                thisTarget.RemoveRest("DoorTrigger");
+                thisTarget.RemoveRest("DoubleDoorTrigger");
+                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
+                thisTarget.RemoveRest("CameraTrigger");
+                thisTarget.RemoveRest("ItemTrigger");
                 break;
             case TriggerTypeState.DoubleSlidingDoor:
-                DrawDoubleSlidingDoor();
+                thisTarget.AddRemoveComponent("DoubleSlidingDoorTrigger");
+                thisTarget.RemoveRest("DialogueTrigger");
+                thisTarget.RemoveRest("DoorTrigger");
+                thisTarget.RemoveRest("DoubleDoorTrigger");
+                thisTarget.RemoveRest("SlidingDoorTrigger");
+                thisTarget.RemoveRest("CameraTrigger");
+                thisTarget.RemoveRest("ItemTrigger");
+                break;
+            case TriggerTypeState.Camera:
+                thisTarget.AddRemoveComponent("CameraTrigger");
+                thisTarget.RemoveRest("DialogueTrigger");
+                thisTarget.RemoveRest("DoorTrigger");
+                thisTarget.RemoveRest("DoubleDoorTrigger");
+                thisTarget.RemoveRest("SlidingDoorTrigger");
+                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
+                thisTarget.RemoveRest("ItemTrigger");
+                break;
+            case TriggerTypeState.Item:
+                thisTarget.AddRemoveComponent("ItemTrigger");
+                thisTarget.RemoveRest("DialogueTrigger");
+                thisTarget.RemoveRest("DoorTrigger");
+                thisTarget.RemoveRest("DoubleDoorTrigger");
+                thisTarget.RemoveRest("SlidingDoorTrigger");
+                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
+                thisTarget.RemoveRest("CameraTrigger");
                 break;
         }
         DrawDefaultInspector();
         EditorGUILayout.Space();
         EditorGUILayout.HelpBox("Add the box collider from the object to the above field", MessageType.Info);
     }
-    //
-    void DrawBasicTrigger()
-    {
-
-    }
-    //
-    void DrawDialogueTrigger()
-    {
-
-    }
-    //
-    void DrawDoorTrigger()
-    {
-
-    }
-    //
-    void DrawDoubleDoorTrigger()
-    {
-
-    }
-    //
-    void DrawSlidingDoorTrigger()
-    {
-
-    }
-    //
-    void DrawDoubleSlidingDoor()
-    {
-
-    }
-    //
 }

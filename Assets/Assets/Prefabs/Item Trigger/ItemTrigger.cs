@@ -5,16 +5,16 @@ using UnityEngine;
 public class ItemTrigger : MonoBehaviour
 {
     BasicTrigger basicTrigger;
-    bool toggleGizmos;
+    [HideInInspector]
+    public bool trigger = true;
     // Use this for initialization
     private void Awake()
     {
         basicTrigger = this.GetComponent<BasicTrigger>();
-        toggleGizmos = basicTrigger.toggleGizmos;
     }
     private void OnDrawGizmos()
     {
-        if (toggleGizmos)
+        if (DebugManager.instance.gizmos)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(this.transform.position, this.GetComponent<BoxCollider>().size);

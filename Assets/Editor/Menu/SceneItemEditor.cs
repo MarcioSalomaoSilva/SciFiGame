@@ -5,6 +5,21 @@ using System.Collections;
 //
 public class SceneItemEditor : Editor
 {
+    //gizmos
+    [MenuItem("Game/Debug/Gizmos/On")]
+    public static void GizmosOn()
+    {
+        DebugManager.instance.gizmos = true;
+        Menu.SetChecked("Game/Debug/Gizmos/On", true);
+        Menu.SetChecked("Game/Debug/Gizmos/Off", false);
+    }
+    [MenuItem("Game/Debug/Gizmos/Off")]
+    public static void GizmosOff()
+    {
+        DebugManager.instance.gizmos = false;
+        Menu.SetChecked("Game/Debug/Gizmos/On", false);
+        Menu.SetChecked("Game/Debug/Gizmos/Off", true);
+    }
     //for scenes
     [MenuItem("Game/Open Scene/Test Level")]
     public static void OpenTestLevel()

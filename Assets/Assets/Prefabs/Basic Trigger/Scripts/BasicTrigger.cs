@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 [RequireComponent(typeof(BoxCollider))]
 [System.Serializable]
 public class BasicTrigger : MonoBehaviour
@@ -10,15 +11,11 @@ public class BasicTrigger : MonoBehaviour
     //public static event BasicTriggerDelegate OnStay;
     //BasicTriggerDelegate mydelegate;
     bool guiActive;
-    //stuff that can be changed
-    [Header("Variables")]
-    [Space]
     public TriggerText triggerText;
     //for debugging
     [Header("Debug Stuff")]
     [Space]
     BoxCollider boxCollider;
-    public bool toggleGizmos;
     // Use this for initialization
     private void OnValidate()
     {
@@ -47,10 +44,6 @@ public class BasicTrigger : MonoBehaviour
             guiActive = !guiActive;
         }
     }
-    public void ToggleGizmos()
-    {
-        toggleGizmos = !toggleGizmos;
-    }
     private void OnGUI()
     {
         if (guiActive)
@@ -65,12 +58,28 @@ public class BasicTrigger : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        if (toggleGizmos)
+        if (DebugManager.instance.gizmos)
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(this.transform.position, boxCollider.size);
             Gizmos.color = new Color(0,1,0,0.1f);
             Gizmos.DrawCube(this.transform.position, boxCollider.size);
+        }
+    }
+    //
+    public void AddRemoveComponent(string name)
+    {
+        if (this.GetComponent(name) == null)
+        {
+            this.gameObject.AddComponent(Type.GetType(name));
+        }
+    }
+    public void RemoveRest(string name)
+    {
+        if (this.GetComponent(name) != null)
+        {
+            //this.gameObject.AddComponent(Type.GetType(name));
+            DestroyImmediate(this.gameObject.GetComponent(Type.GetType(name)));
         }
     }
 }

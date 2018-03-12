@@ -6,20 +6,20 @@ public class DialogueTrigger : MonoBehaviour
 {
     BasicTrigger basicTrigger;
     public Dialogue dialogue;
-    bool toggleGizmos;
+    [HideInInspector]
+    public bool trigger = true;
     //
     private void Awake()
     {
         basicTrigger = this.GetComponent<BasicTrigger>();
-        toggleGizmos = basicTrigger.toggleGizmos;
     }
     private void OnDrawGizmos()
     {
-        if (toggleGizmos)
+        if (DebugManager.instance.gizmos)
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireCube(this.transform.position, this.GetComponent<BoxCollider>().size);
-            Gizmos.color = new Color(0, 0, 0, 1.1f);
+            Gizmos.color = new Color(0, 0, 1, 0.1f);
             Gizmos.DrawCube(this.transform.position, this.GetComponent<BoxCollider>().size);
         }
     }

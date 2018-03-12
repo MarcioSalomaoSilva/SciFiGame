@@ -303,6 +303,7 @@
     <Compile Include="Assets\Scripts\Camera Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Camera Scripts\CameraMotor.cs" />
     <Compile Include="Assets\Scripts\Debug Scripts\DebugManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerMotor.cs" />
