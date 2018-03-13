@@ -18,6 +18,6 @@ public enum TriggerTextState
 [System.Serializable]
 public enum TriggerTypeState
 {
-    Dialogue, Camera, Item, Door, DoubleDoor, SlidingDoor, DoubleSlidingDoor
+    None, Dialogue, Camera, Item, Door, DoubleDoor, SlidingDoor, DoubleSlidingDoor
 }
 

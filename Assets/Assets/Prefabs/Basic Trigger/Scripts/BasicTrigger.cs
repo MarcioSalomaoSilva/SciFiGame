@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Animator))]
 [System.Serializable]
 public class BasicTrigger : MonoBehaviour
 {
@@ -67,19 +69,29 @@ public class BasicTrigger : MonoBehaviour
         }
     }
     //
-    public void AddRemoveComponent(string name)
+    public void AddComponent(string name)
     {
         if (this.GetComponent(name) == null)
         {
             this.gameObject.AddComponent(Type.GetType(name));
         }
     }
-    public void RemoveRest(string name)
+    public void RemoveComponent(string name)
     {
         if (this.GetComponent(name) != null)
         {
             //this.gameObject.AddComponent(Type.GetType(name));
             DestroyImmediate(this.gameObject.GetComponent(Type.GetType(name)));
         }
+    }
+    public void RemoveObject()
+    {
+        var tempList = transform.Cast<Transform>().ToList();
+        foreach (var child in tempList)
+        {
+            DestroyImmediate(child.gameObject);
+        }
+        //
+        //DestroyImmediate(this.gameObject.transform.GetChild(0));
     }
 }

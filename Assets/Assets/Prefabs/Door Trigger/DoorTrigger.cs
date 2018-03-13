@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
-
+using UnityEditor;
 public class DoorTrigger : MonoBehaviour
 {
     //BasicTrigger basicTrigger;
-    [HideInInspector]
-    public bool trigger = true;
-    bool warned = true;
+    Animator animator;
     public GameObject door;
     public bool pull;
     public bool randomAngleToggle;
@@ -17,7 +16,7 @@ public class DoorTrigger : MonoBehaviour
     // Use this for initialization
     private void Awake()
     {
-        //basicTrigger = this.GetComponent<BasicTrigger>();
+        animator = this.gameObject.AddComponent<Animator>();
     }
     private void OnDrawGizmos()
     {
@@ -42,14 +41,14 @@ public class DoorTrigger : MonoBehaviour
         {
             if (door != null)
             {
-                
+                OpenDoor();
             }
         }
     }
     public void OpenDoor()
     {
-
     }
+    //
     private void OnValidate()
     {
         if (door == null)

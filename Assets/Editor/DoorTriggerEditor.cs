@@ -3,11 +3,12 @@ using UnityEditor;
 [CustomEditor(typeof(DoorTrigger))]
 public class DoorTriggerEditor : Editor
 {
+    object source;
     private DoorTrigger thisTarget;
     public override void OnInspectorGUI()
     {
         thisTarget = (DoorTrigger)target;
-
+        thisTarget.door = (GameObject)EditorGUILayout.ObjectField("Door Game Object", thisTarget.door, typeof(Object), true);
         thisTarget.pull = EditorGUILayout.Toggle("Pull/Push", thisTarget.pull);
         thisTarget.randomAngleToggle = EditorGUILayout.Toggle("Random Angle", thisTarget.randomAngleToggle);
         if (thisTarget.randomAngleToggle)

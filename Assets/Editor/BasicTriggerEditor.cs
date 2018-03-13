@@ -13,72 +13,72 @@ public class BasicTriggerEditor : Editor
         thisTarget.triggerState = (TriggerTypeState)EditorGUILayout.EnumPopup("Trigger Type", thisTarget.triggerState);
         switch (thisTarget.triggerState)
         {
+            case TriggerTypeState.None:
+                thisTarget.RemoveComponent("CameraTrigger");
+                RemoveRest("DialogueTrigger", "DoorTrigger", "DoubleDoorTrigger", 
+                    "SlidingDoorTrigger", "DoubleSlidingDoorTrigger", "ItemTrigger");
+                thisTarget.RemoveObject();
+                break;
             case TriggerTypeState.Dialogue:
-                thisTarget.AddRemoveComponent("DialogueTrigger");
-                thisTarget.RemoveRest("DoubleDoorTrigger");
-                thisTarget.RemoveRest("DoorTrigger");
-                thisTarget.RemoveRest("SlidingDoorTrigger");
-                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
-                thisTarget.RemoveRest("CameraTrigger");
-                thisTarget.RemoveRest("ItemTrigger");
+                thisTarget.AddComponent("DialogueTrigger");
+                RemoveRest("CameraTrigger", "DoorTrigger", "DoubleDoorTrigger", 
+                    "SlidingDoorTrigger", "DoubleSlidingDoorTrigger", "ItemTrigger");
+                thisTarget.RemoveObject();
                 break;
             case TriggerTypeState.Door:
-                thisTarget.AddRemoveComponent("DoorTrigger");
-                thisTarget.RemoveRest("DialogueTrigger");
-                thisTarget.RemoveRest("DoubleDoorTrigger");
-                thisTarget.RemoveRest("SlidingDoorTrigger");
-                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
-                thisTarget.RemoveRest("CameraTrigger");
-                thisTarget.RemoveRest("ItemTrigger");
+                thisTarget.AddComponent("DoorTrigger");
+                RemoveRest("DialogueTrigger", "CameraTrigger", "DoubleDoorTrigger", 
+                    "SlidingDoorTrigger", "DoubleSlidingDoorTrigger", "ItemTrigger");
+                thisTarget.RemoveObject();
+                SetAnimatorController("DoorController");
                 break;
             case TriggerTypeState.DoubleDoor:
-                thisTarget.AddRemoveComponent("DoubleDoorTrigger");
-                thisTarget.RemoveRest("DialogueTrigger");
-                thisTarget.RemoveRest("DoorTrigger");
-                thisTarget.RemoveRest("SlidingDoorTrigger");
-                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
-                thisTarget.RemoveRest("CameraTrigger");
-                thisTarget.RemoveRest("ItemTrigger");
+                thisTarget.AddComponent("DoubleDoorTrigger");
+                RemoveRest("DialogueTrigger", "DoorTrigger", "DoubleSlidingDoorTrigger", 
+                    "SlidingDoorTrigger", "CameraTrigger", "ItemTrigger");
+                thisTarget.RemoveObject();
                 break;
             case TriggerTypeState.SlidingDoor:
-                thisTarget.AddRemoveComponent("SlidingDoorTrigger");
-                thisTarget.RemoveRest("DialogueTrigger");
-                thisTarget.RemoveRest("DoorTrigger");
-                thisTarget.RemoveRest("DoubleDoorTrigger");
-                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
-                thisTarget.RemoveRest("CameraTrigger");
-                thisTarget.RemoveRest("ItemTrigger");
+                thisTarget.AddComponent("SlidingDoorTrigger");
+                RemoveRest("DialogueTrigger", "DoorTrigger", "DoubleDoorTrigger", 
+                    "DoubleSlidingDoorTrigger", "CameraTrigger", "ItemTrigger");
+                thisTarget.RemoveObject();
                 break;
             case TriggerTypeState.DoubleSlidingDoor:
-                thisTarget.AddRemoveComponent("DoubleSlidingDoorTrigger");
-                thisTarget.RemoveRest("DialogueTrigger");
-                thisTarget.RemoveRest("DoorTrigger");
-                thisTarget.RemoveRest("DoubleDoorTrigger");
-                thisTarget.RemoveRest("SlidingDoorTrigger");
-                thisTarget.RemoveRest("CameraTrigger");
-                thisTarget.RemoveRest("ItemTrigger");
+                thisTarget.AddComponent("DoubleSlidingDoorTrigger");
+                RemoveRest("DialogueTrigger", "DoorTrigger", "DoubleDoorTrigger", 
+                    "SlidingDoorTrigger", "CameraTrigger", "ItemTrigger");
+                thisTarget.RemoveObject();
                 break;
             case TriggerTypeState.Camera:
-                thisTarget.AddRemoveComponent("CameraTrigger");
-                thisTarget.RemoveRest("DialogueTrigger");
-                thisTarget.RemoveRest("DoorTrigger");
-                thisTarget.RemoveRest("DoubleDoorTrigger");
-                thisTarget.RemoveRest("SlidingDoorTrigger");
-                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
-                thisTarget.RemoveRest("ItemTrigger");
+                thisTarget.AddComponent("CameraTrigger");
+                RemoveRest("DialogueTrigger", "DoorTrigger", "DoubleDoorTrigger", 
+                    "SlidingDoorTrigger", "DoubleSlidingDoorTrigger", "ItemTrigger");
                 break;
             case TriggerTypeState.Item:
-                thisTarget.AddRemoveComponent("ItemTrigger");
-                thisTarget.RemoveRest("DialogueTrigger");
-                thisTarget.RemoveRest("DoorTrigger");
-                thisTarget.RemoveRest("DoubleDoorTrigger");
-                thisTarget.RemoveRest("SlidingDoorTrigger");
-                thisTarget.RemoveRest("DoubleSlidingDoorTrigger");
-                thisTarget.RemoveRest("CameraTrigger");
+                thisTarget.AddComponent("ItemTrigger");
+                RemoveRest("DialogueTrigger", "DoorTrigger", "DoubleDoorTrigger", 
+                    "SlidingDoorTrigger", "DoubleSlidingDoorTrigger", "CameraTrigger");
+                thisTarget.RemoveObject();
                 break;
         }
         DrawDefaultInspector();
         EditorGUILayout.Space();
         EditorGUILayout.HelpBox("Add the box collider from the object to the above field", MessageType.Info);
+    }
+    public void RemoveRest(string name1, string name2, string name3, string name4, string name5, string name6)
+    {
+        thisTarget.RemoveComponent(name1);
+        thisTarget.RemoveComponent(name2);
+        thisTarget.RemoveComponent(name3);
+        thisTarget.RemoveComponent(name4);
+        thisTarget.RemoveComponent(name5);
+        thisTarget.RemoveComponent(name6);
+    }
+    public void SetAnimatorController(string name)
+    {
+        thisTarget.GetComponent<Animator>().runtimeAnimatorController =
+                    AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(
+                        "Assets/Assets/Animators/" + name +".controller");
     }
 }

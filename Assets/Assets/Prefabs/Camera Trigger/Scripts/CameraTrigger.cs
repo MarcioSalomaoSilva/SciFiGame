@@ -25,15 +25,14 @@ public class CameraTrigger : MonoBehaviour
             mainCamera = Camera.main.gameObject;
         }
     }
-    void OnTriggerEnter(Collider other)//NOTE: send a delegate to camera manager to change the position of the camera 
-        //and to player motor to change the transform direction if the axis returns to zero 
+    void OnTriggerEnter(Collider other)
     {
         if (OnEnter != null && other.tag == "Player")
         {
             OnEnter(cameraLocation.transform, lookAtPlayer, cameraChangeSpeed);
         }
     }
-    void OnTriggerExit(Collider other)//NOTE: send a delegate to camera manager and player motor 
+    void OnTriggerExit(Collider other)
     {
         if (OnExit != null && other.tag == "Player")
         {
@@ -57,8 +56,6 @@ public class CameraTrigger : MonoBehaviour
         if (DebugManager.instance.gizmos)
         {
             //draws camera location
-            
-            //
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireCube(this.transform.position, this.GetComponent<BoxCollider>().size);
             Gizmos.color = new Color(1, .92f, 0.016f, 0.1f);
