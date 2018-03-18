@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEditor;
+using System;
+using System.Linq;
 public class DoorTrigger : MonoBehaviour
 {
     //BasicTrigger basicTrigger;
     Animator animator;
+    public DoorTypeState doorType;
     public GameObject door;
     public bool pull;
     public bool randomAngleToggle;
@@ -48,17 +50,12 @@ public class DoorTrigger : MonoBehaviour
     public void OpenDoor()
     {
     }
-    //
-    private void OnValidate()
+    public void RemoveObject()
     {
-        if (door == null)
+        var tempList = transform.Cast<Transform>().ToList();
+        foreach (var child in tempList)
         {
-            TriggerVariables();
+            DestroyImmediate(child.gameObject);
         }
-    }
-    public void TriggerVariables()
-    {
-        Debug.LogError("Assign an object to door");
-        //
     }
 }

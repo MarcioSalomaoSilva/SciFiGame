@@ -79,6 +79,6 @@ public class BasicTriggerEditor : Editor
     {
         thisTarget.GetComponent<Animator>().runtimeAnimatorController =
                     AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(
-                        "Assets/Assets/Animators/" + name +".controller");
+                        "Assets/Assets/Animation/Animators/" + name +".controller");
     }
 }

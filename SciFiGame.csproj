@@ -290,16 +290,6 @@
   <ItemGroup>
     <Compile Include="Assets\Assets\Prefabs\Basic Trigger\Scripts\BasicTrigger.cs" />
     <Compile Include="Assets\Assets\Prefabs\Camera Trigger\Scripts\CameraTrigger.cs" />
-    <Compile Include="Assets\Assets\Prefabs\Dialogue Trigger\Dialogue.cs" />
-    <Compile Include="Assets\Assets\Prefabs\Dialogue Trigger\DialogueManager.cs" />
-    <Compile Include="Assets\Assets\Prefabs\Dialogue Trigger\DialogueTrigger.cs" />
-    <Compile Include="Assets\Assets\Prefabs\Door Trigger\DoorTrigger.cs" />
-    <Compile Include="Assets\Assets\Prefabs\Double Door Trigger\DoubleDoorTrigger.cs" />
-    <Compile Include="Assets\Assets\Prefabs\Double Sliding Door Trigger\DoubleSlidingDoorTrigger.cs" />
-    <Compile Include="Assets\Assets\Prefabs\Item Trigger\ItemTrigger.cs" />
-    <Compile Include="Assets\Assets\Prefabs\Sliding Door Trigger\SlidingDoorTrigger.cs" />
-    <Compile Include="Assets\Assets\Prefabs\TriggerStates.cs" />
-    <Compile Include="Assets\Assets\Prefabs\TriggerText.cs" />
     <Compile Include="Assets\Scripts\Camera Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Camera Scripts\CameraMotor.cs" />
     <Compile Include="Assets\Scripts\Debug Scripts\DebugManager.cs" />
@@ -307,6 +297,16 @@
     <Compile Include="Assets\Scripts\Player Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerMotor.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\Dialogue Trigger\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\Dialogue Trigger\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\Dialogue Trigger\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\Door Trigger\DoorTrigger.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\Double Door Trigger\DoubleDoorTrigger.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\Double Sliding Door Trigger\DoubleSlidingDoorTrigger.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\Item Trigger\ItemTrigger.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\Sliding Door Trigger\SlidingDoorTrigger.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\TriggerStates.cs" />
+    <Compile Include="Assets\Scripts\Trigger Scripts\TriggerText.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -20,4 +20,9 @@ public enum TriggerTypeState
 {
     None, Dialogue, Camera, Item, Door, DoubleDoor, SlidingDoor, DoubleSlidingDoor
 }
+[System.Serializable]
+public enum DoorTypeState
+{
+    None, TestDoor
+}
 
